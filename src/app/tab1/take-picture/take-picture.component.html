@@ -1,0 +1,15 @@
+<ion-button (click)="openModal()">Open Modal</ion-button>
+
+@if(cameraService.images.length > 0){
+  @for(image of cameraService.images ; track image){
+    <img [src]="image">
+  }
+}
+<ion-modal expand="block" [isOpen]="isOpenModal" (willDismiss)="modalDismised()">
+    <ng-template>
+      <div class="buttons_actions">
+        <ion-button (click)="takePicture()">take picture</ion-button>
+        <ion-button (click)="closeModal()">close</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
